@@ -7,3 +7,9 @@ we need to create a server to listen to the incoming requests from outside, we w
 - listen to port 7777
 - write req handlers
 - install nodemon and update scripts inside package.json
+
+/ab?c === it will work for abc as well as ac
+/ab+c === it will work for abc as well as for abbbbbbc
+/ab\*cd === it will work for abcd as well as ab<anything>cd it will work
+/a(bc)?d === it means bc is optional while api calls
+/user/:userid/:name/:password === we can get these params using req.params in the apis
