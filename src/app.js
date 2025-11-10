@@ -5,17 +5,12 @@ const User = require("./models/user");
 
 const app = express();
 
+app.use(express.json());
+
 //api to insert data in user schema
 app.post("/signup", async (req, res) => {
-  //creating instance of userModel
-  const user = new User({
-    firstName: "Virat",
-    lastName: "Kohli",
-    emailId: "virat@kohli.com",
-    password: "Virat@27",
-    age: 38,
-    gender: "Male",
-  });
+  //creating a user and saving it in database
+  const user = new User(req.body);
   try {
     await user.save();
     res.send("User created successfully");

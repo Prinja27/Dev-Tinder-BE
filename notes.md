@@ -15,3 +15,5 @@ we need to create a server to listen to the incoming requests from outside, we w
 /user/:userid/:name/:password === we can get these params using req.params in the apis
 
 # first connect to the database then listen to the server
+
+# to read the request data we need a middle ware
