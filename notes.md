@@ -13,3 +13,5 @@ we need to create a server to listen to the incoming requests from outside, we w
 /ab\*cd === it will work for abcd as well as ab<anything>cd it will work
 /a(bc)?d === it means bc is optional while api calls
 /user/:userid/:name/:password === we can get these params using req.params in the apis
+
+# first connect to the database then listen to the server
