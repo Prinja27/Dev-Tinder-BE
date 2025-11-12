@@ -2,7 +2,6 @@ const express = require("express");
 const connectDB = require("./config/database");
 const { adminAuth, userAuth } = require("./middlewares/auth");
 const User = require("./models/user");
-const { model } = require("mongoose");
 
 const app = express();
 
@@ -42,6 +41,31 @@ app.get("/feed", async (req, res) => {
     res.send(users);
   } catch (err) {
     res.status(400).send("Something went wrong");
+  }
+});
+
+// deleting a user
+app.delete("/user", async (req, res) => {
+  const userId = req.body.userId;
+  try {
+    await User.findByIdAndDelete(userId);
+    console.log(userId);
+
+    res.send("User deleted successfully");
+  } catch (err) {
+    res.status(400).send("Something went wrong");
+  }
+});
+
+//update data of the user
+app.patch("/user", async (req, res) => {
+  const userId = req.body.userId;
+  const data = req.body;
+  try {
+    await User.findByIdAndUpdate(userId, data);
+    res.send("User updated successfully");
+  } catch (err) {
+    res.status(400).send("something went wrong");
   }
 });
 
