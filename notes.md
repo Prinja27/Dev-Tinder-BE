@@ -17,3 +17,7 @@ we need to create a server to listen to the incoming requests from outside, we w
 # first connect to the database then listen to the server
 
 # to read the request data we need a middle ware
+
+# validate functions will only run on new insertions in the database not if we are updating existing records
+
+# for existing records we have to use runvalidators as options in our findByIdAndUpdate function
